@@ -1,5 +1,7 @@
 # sillytavern-lab
 
+[![selftest](https://github.com/Ushio155/sillytavern-lab/actions/workflows/selftest.yml/badge.svg)](https://github.com/Ushio155/sillytavern-lab/actions/workflows/selftest.yml)
+
 跑一个**隔离的第二份 SillyTavern**，用来开发和测试插件，而不碰你真正的聊天记录、角色卡、世界书和设置。
 
 - 你正式的 SillyTavern 照常跑在原端口、用原数据，完全不受影响。

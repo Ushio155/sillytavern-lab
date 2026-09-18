@@ -1,5 +1,7 @@
 # sillytavern-lab
 
+[![selftest](https://github.com/Ushio155/sillytavern-lab/actions/workflows/selftest.yml/badge.svg)](https://github.com/Ushio155/sillytavern-lab/actions/workflows/selftest.yml)
+
 Run a **second, isolated SillyTavern** so you can develop and test extensions
 without touching your real chats, characters, lorebooks or settings.
 
