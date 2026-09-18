@@ -1,0 +1,32 @@
+{
+  "name": "sillytavern-lab",
+  "version": "1.0.0",
+  "description": "Run a second, isolated SillyTavern instance so you can develop and test extensions without touching your real chats, characters and settings.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "stlab": "./lab.mjs"
+  },
+  "scripts": {
+    "test": "node --test selftest.mjs",
+    "verify": "node verify.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "sillytavern",
+    "extension",
+    "plugin",
+    "development",
+    "test-isolation"
+  ],
+  "files": [
+    "lab.mjs",
+    "lab-env.mjs",
+    "lab.config.example.json",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ]
+}

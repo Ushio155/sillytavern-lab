@@ -1,0 +1,10 @@
+# Check out LF everywhere, on every platform: this is a Node project and a
+# shell-invoked CLI, so mixed line endings only cause noise.
+* text=auto eol=lf
+
+# Never let git rewrite binary assets.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary

@@ -1,0 +1,8 @@
+# Runtime state: generated config, pid, lock, log and the lab's whole data root.
+.runtime/
+
+# Your machine-specific configuration. Only the example is committed.
+lab.config.json
+
+# Never part of this project.
+node_modules/

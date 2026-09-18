@@ -1,0 +1,75 @@
+// sillytavern-lab configuration. Copy this file to lab.config.json and edit it.
+//
+// Every value here is optional: with no lab.config.json at all, the lab uses
+// the defaults shown below and auto-detects your SillyTavern install.
+// Environment variables override this file (LAB_ST_INSTALL, LAB_DATA_ROOT,
+// LAB_CONFIG_PATH, LAB_ST_PORT, LAB_MOCK_PORT, LAB_CDP_PORT, LAB_ST_URL).
+{
+  // Your SillyTavern checkout: the directory that contains server.js.
+  // When omitted, a few conventional locations are probed.
+  "stInstall": "D:\\sillytavern",
+
+  // Lab-private data root. chats/, characters/, worlds/, settings.json and
+  // _webpack/ all live here; none of it is your real data. Relative paths
+  // resolve against the lab directory. Default: .runtime/data
+  "dataRoot": ".runtime/data",
+
+  // The config.yaml handed to the lab instance. It is created on first start by
+  // copying your real config.yaml (or SillyTavern's default/config.yaml), so it
+  // never goes stale the way a hand-written template would.
+  "configPath": ".runtime/config.yaml",
+
+  // Accept connections from outside this machine. Off by default: an isolated
+  // test instance should not be reachable from your network by accident.
+  "listen": false,
+
+  // Open a browser window when the lab starts. Off by default.
+  "browserLaunch": false,
+
+  // Extra config.yaml settings, as dotted keys. These are handed to the lab
+  // process as SillyTavern's documented SILLYTAVERN_* environment overrides, so
+  // no YAML is ever rewritten.
+  "overrides": {
+    "performance.useDiskCache": false
+  },
+
+  "ports": {
+    "st": 8011,
+    "mock": 8123,
+    "cdp": 9333
+  },
+
+  // What `clean` is allowed to delete.
+  //
+  // A rule deletes regular files whose *name* matches `pattern`, inside `dir`.
+  // Directories and symlinks are never followed, and nothing outside these
+  // rules is ever touched. Add one rule per kind of fixture your tests create.
+  "residue": {
+    "rules": [
+      {
+        "dir": "characters",
+        "pattern": "^MyExt-Test-.*\\.png$",
+        "reason": "MyExt imports a fresh test card per run and never deletes it"
+      },
+      {
+        "dir": "thumbnails/avatar",
+        "pattern": "^MyExt-Test-.*\\.png$",
+        "reason": "same card, but its generated thumbnail lives in a different directory"
+      },
+      {
+        "dir": "worlds",
+        "pattern": "^MyExt-Test-.*\\.json$",
+        "reason": "MyExt lorebook fixtures; SillyTavern appends \" (N)\" when names clash"
+      }
+    ],
+
+    // Extra files clean must never delete. Paths are relative to the user
+    // directory (default-user/) unless "root" is "dataRoot".
+    "protect": [
+      {
+        "path": "worlds/MyHandWrittenBook.json",
+        "note": "written by hand, not a fixture"
+      }
+    ]
+  }
+}
